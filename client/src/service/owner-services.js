@@ -5,15 +5,18 @@ export default class services {
   constructor() {
 
     this.service = axios.create({
-      baseURL: `${process.env.URLLOCAL}:${process.env.PORT}/api/`
+      baseURL: 'http://localhost:5000/api/'
     })
   }
 
 
-  postRestaurant = (restaurant, user_id) => {
-    return this.service.post('newRestaurant', restaurant, user_id)
-      .then(res => res.data)
-      .catch(err => console.log(err))
+  postRestaurant = (restaurant) => {
+
+    return this.service.post('newRestaurant', restaurant)
+      .then(res => {
+        return res.data
+      })
+      .catch(err => console.log({ err }))
   }
 
   getOneCoaster = (user_id, name_restaurant) => {

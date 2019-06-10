@@ -35,7 +35,7 @@ app.use(passport.session());
 
 // configuracion middleware CORS
 // const whitelist = [`${process.env.URLLOCAL}:${process.env.PORT}`]
-const whitelist = [`${process.env.URLLOCAL}:${process.env.PORT}`]
+const whitelist = ['http://localhost:3000']
 const corsOptions = {
   origin: (origin, cb) => {
     const originIsWhitelisted = whitelist.includes(origin);
@@ -79,5 +79,7 @@ app.locals.title = 'Express - Generated with IronGenerator';
 const authRoutes = require('./routes/auth.routes');
 app.use('/api', authRoutes);
 
+const ownerRoutes = require('./routes/owner.routes');
+app.use('/api', ownerRoutes);
 
 module.exports = app;

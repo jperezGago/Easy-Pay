@@ -1,28 +1,29 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
+import RestaurantForm from './components/restaurant-form'
+import MenuForm from './components/menu-form'
+import { Switch, Route } from 'react-router-dom'
+
+
+
 class App extends Component {
+
+  constructor(props) {
+    super(props)
+  }
+
 
   render() {
 
     return (
 
-      <div className="App" >
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-        </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-        </a>
-        </header>
+      <div>
+        <Switch>
+          {/* <Route path="/my-restaurants/new" exact component={RestaurantForm} /> */}
+          <Route path="/" exact component={RestaurantForm} />
+          <Route path="/my-restaurants/:restaurant_id/menu/new" exact component={MenuForm} />
+        </Switch>
       </div>
     )
   }

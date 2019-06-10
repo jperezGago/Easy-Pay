@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import OwnerServices from '../service/coaster-services'
+import OwnerServices from '../service/owner-services'
 
 
 class MenuForm extends Component {
@@ -74,8 +74,9 @@ class MenuForm extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        this.services.postMenu(this.state.restaurant.menu)
-            .then(x => window.location.href = "/coasters")
+        console.log('Formulario de menu')
+        // this.services.postMenu(this.state.restaurant.menu)
+        //     .then(x => window.location.href = "/coasters")
     }
 
     render() {
